@@ -47,7 +47,7 @@ def leave_class():
 
     try:
         leave_button = driver.find_element_by_xpath(
-            '//*[@id="ow3"]/div[1]/div/div[4]/div[3]/div[9]/div[2]/div[2]').click()
+            '//*[@id="ow3"]/div[1]/div/div[5]/div[3]/div[9]/div[2]/div[2]/div/div[1]').click()
 
         print("CLASS LEFT SUCESSFULLY @", datetime.now().strftime('%H:%M'))
 
