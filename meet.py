@@ -36,6 +36,14 @@ def join_class():
     mic_button = driver.find_element_by_xpath(
         '//*[@id="yDmH0d"]/c-wiz/div/div/div[4]/div[3]/div/div[2]/div/div/div[1]/div[1]/div[3]/div[1]/div/div/div').click()
 
+    """
+    Remove this from comment if you're setting up this on virtual env or Remote Desktop Connection
+    
+    dismiss_button = driver.find_element_by_xpath(
+        '//*[@id="yDmH0d"]/div[3]/div/div[2]/div[3]/div/span/span').click() 
+    """
+
+
     delay(3)
 
     enter_meeting_button = driver.find_element_by_xpath(
