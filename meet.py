@@ -1,4 +1,5 @@
 import time
+import requests
 import schedule
 from datetime import datetime
 from selenium import webdriver
@@ -23,6 +24,9 @@ op.add_argument(
     '--profile-directory= Profile 2')
 
 driver = webdriver.Chrome(options=op)
+
+chat_id = '587329288'
+api_key = '1323350494:AAGytCoJVO6d_Z_CTlRFmVwcFoWYdlDP9Lc'
 
 def join_class():
 
@@ -49,6 +53,15 @@ def join_class():
     enter_meeting_button = driver.find_element_by_xpath(
         '//*[@id="yDmH0d"]/c-wiz/div/div/div[4]/div[3]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div[1]').click()
 
+    
+    def send_message():
+        chat_id = '587329288'
+        api_key = '1323350494:AAGytCoJVO6d_Z_CTlRFmVwcFoWYdlDP9Lc'
+        
+        message = 'Class joined', datetime.now().strftime('%H:%M')
+        telegram_url = "https://api.telegram.org/bot{}/sendMessage?text={}&chat_id={}".format(api_key, message, chat_id)
+        telegram_response = requests.get(telegram_url)
+
     print("CLASS JOINED SUCESSFULLY @", datetime.now().strftime('%H:%M'))
 
 def leave_class():
@@ -65,7 +78,7 @@ def leave_class():
     #driver.close()
 
 #1st Class
-schedule.every().day.at("09:00").do(join_class)
+schedule.every().day.at("16:45").do(join_class)
 schedule.every().day.at("09:49").do(leave_class)
 
 #2nd Class
